@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load bootstrap5%}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{%block content%}
+<div class="tw-flex tw-flex-col tw-justify-center tw-mx-auto tw-max-w-lg tw-mt-20">
+    <form action="" method="POST">{%csrf_token%}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">
+            Submit
+            </button>
+        {% endbuttons %}
+    </form>
+</div>
+
+{%endblock%}

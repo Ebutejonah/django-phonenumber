@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+{%block content%}
+    <div class="tw-flex tw-justify-center tw-mx-auto tw-max-w-4xl tw-mt-20">
+        {%for message in messages%}
+        <p>{{message}}</p>
+        {%endfor%}
+    </div>
+    <div class="tw-flex tw-justify-center tw-mx-auto tw-max-w-4xl tw-mt-20">
+        <form action="" method="POST">{%csrf_token%}
+            <p><input type="email" name="email" class="tw-rounded-lg tw-px-2" placeholder="Email"></p>
+            <p><input type="password" name="password" class="tw-rounded-lg tw-px-2" placeholder="Password"></p>
+            <p><input type="submit" value="Login" class="tw-bg-blue-500 tw-rounded-lg tw-text-white" ></p>
+        </form>
+    </div>
+{%endblock%}

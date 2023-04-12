@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.3.1"
+  },
+  "scripts": {
+    "start":"" ,
+    "build": "tailwindcss -i ./src/input.css -o ./core/static/main.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./core/static/main.css --watch"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0"
+  }
+}

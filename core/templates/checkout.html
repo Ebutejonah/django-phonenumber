@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block content%}
+
+<section class="tw-flex tw-justify-center tw-mt-20">
+    <button id="start-payment-button" onclick="makePayment()" class="btn btn-primary">
+        Pay Now
+    </button>     
+</section>
+
+<script src="https://checkout.flutterwave.com/v3.js"></script>
+<script>
+    let user_email = "{{user.email}}"
+    let profile_number = "{{profile.phone_number}}"
+    let profile_name = "{{profile.first_name}}"
+
+    function makePayment() {
+      FlutterwaveCheckout({
+        public_key: "FLWPUBK_TEST-5fccd98b3f2684f0ace01937161508e7-X",
+        tx_ref: "titanic-48981487343MDI0NzMx",
+        amount: 1000000,
+        currency: "NGN",
+        payment_options: "card, banktransfer, ussd",
+        redirect_url: "http://127.0.0.1:8000/success/",
+        meta: {
+          consumer_id: 23,
+          consumer_mac: "92a3-912ba-1192a",
+        },
+        customer: {
+          email: user_email,
+          phone_number: profile_number,
+          name: profile_name,
+        },
+        customizations: {
+          title: "The Tech Wave",
+          description: "Payment for techforjonah",
+          logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+        },
+      });
+      FlutterwaveCheckout();
+    }
+</script>
+{%endblock%}
