@@ -39,15 +39,21 @@ def login(request):
         try:
             account = CustomUser.objects.get(email=email)
             if password != account.password:
-                messages.error(request,'Invalid Email or Password')
+                messages.error(request,'Invalid Email or Password.')
         except:
             CustomUser.DoesNotExist()
-            messages.error(request,'Invalid Email or Password')
+            messages.error(request,'Fields cannot be empty.')
         user = auth.authenticate(email=email,password=password) 
         if user is not None:
             auth.login(request,user)
             return redirect('/profile')
     return render(request,'login.html')
+
+
+@login_required()
+def logout(request):
+    auth.logout(request)
+    return redirect('/login')
 
 @login_required()
 def profile(request):

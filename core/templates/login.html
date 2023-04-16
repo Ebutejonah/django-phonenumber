@@ -3,11 +3,15 @@
 
 
 {%block content%}
-    <div class="tw-flex tw-justify-center tw-mx-auto tw-max-w-4xl tw-mt-20">
-        {%for message in messages%}
+    {%for message in messages%}
+    {%if message%}
+    <div class="tw-flex tw-justify-center tw-mx-auto tw-max-w-4xl tw-mt-20 message alert alert-info">
+        
         <p>{{message}}</p>
-        {%endfor%}
+        
     </div>
+    {%endif%}
+    {%endfor%}
     <div class="tw-flex tw-justify-center tw-mx-auto tw-max-w-4xl tw-mt-20">
         <form action="" method="POST">{%csrf_token%}
             <p><input type="email" name="email" class="tw-rounded-lg tw-px-2" placeholder="Email"></p>

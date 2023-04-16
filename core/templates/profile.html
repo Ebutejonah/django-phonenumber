@@ -5,7 +5,7 @@
 {% bootstrap_javascript %}
 
 {%block content%}
-<div class="tw-flex tw-flex-col tw-justify-center tw-mx-auto tw-max-w-lg tw-mt-20">
+<div class="tw-flex tw-justify-between tw-mx-auto tw-max-w-lg tw-mt-20">
     <form action="" method="POST">{%csrf_token%}
         {% bootstrap_form form %}
         {% buttons %}
@@ -14,6 +14,11 @@
             </button>
         {% endbuttons %}
     </form>
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">
+        <a class="tw-text-white tw-no-underline"href="{%url 'core:logout'%}">Logout</a>
+    </button>
+    {% endbuttons %}
 </div>
-
+{{redirect_to_login_immediately}}
 {%endblock%}

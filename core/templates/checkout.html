@@ -7,6 +7,7 @@
     <button id="start-payment-button" onclick="makePayment()" class="btn btn-primary">
         Pay Now
     </button>     
+    {{redirect_to_login_immediately}}
 </section>
 
 <script src="https://checkout.flutterwave.com/v3.js"></script>
@@ -19,7 +20,7 @@
       FlutterwaveCheckout({
         public_key: "FLWPUBK_TEST-5fccd98b3f2684f0ace01937161508e7-X",
         tx_ref: "titanic-48981487343MDI0NzMx",
-        amount: 1000000,
+        amount: 100000,
         currency: "NGN",
         payment_options: "card, banktransfer, ussd",
         redirect_url: "http://127.0.0.1:8000/success/",

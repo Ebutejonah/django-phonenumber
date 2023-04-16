@@ -151,12 +151,12 @@
   max-width: 32rem !important
 }
 
-.tw-flex-col {
-  flex-direction: column !important
-}
-
 .tw-justify-center {
   justify-content: center !important
+}
+
+.tw-justify-between {
+  justify-content: space-between !important
 }
 
 .tw-rounded-lg {
@@ -176,4 +176,8 @@
 .tw-text-white {
   --tw-text-opacity: 1 !important;
   color: rgb(255 255 255 / var(--tw-text-opacity)) !important
+}
+
+.tw-no-underline {
+  text-decoration-line: none !important
 }
